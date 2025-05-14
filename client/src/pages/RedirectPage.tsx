@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import TecnaritLogo from "../components/TecnaritLogo";
+import CodeAnimation from "../components/CodeAnimation";
 
 const RedirectPage = () => {
-  const [secondsLeft, setSecondsLeft] = useState(4);
+  const [secondsLeft, setSecondsLeft] = useState(6);
   const [progress, setProgress] = useState(0);
   const redirectUrl = "https://www.tecnarit.com";
 
@@ -44,16 +44,27 @@ const RedirectPage = () => {
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
         {/* Logo Section */}
         <div className="mb-8 flex flex-col items-center">
-          <div className="mb-4" style={{ width: "120px", height: "120px" }}>
-            <TecnaritLogo />
-          </div>
-          <div className="text-3xl font-bold text-white tracking-widest">
-            TECNARIT
+          <div className="mb-4" style={{ width: "200px", height: "auto" }}>
+            <img 
+              src="/assets/tecnarit-logo.png" 
+              alt="Tecnarit Logo" 
+              className="w-full h-auto"
+              onError={(e) => {
+                console.error("Logo failed to load");
+                const target = e.target as HTMLImageElement;
+                target.style.display = "none";
+              }}
+            />
           </div>
         </div>
 
+        {/* Code Animation */}
+        <div className="mb-8 w-full max-w-lg">
+          <CodeAnimation />
+        </div>
+
         {/* Message Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
             "Not an Uber, but we do drive quality!"
           </h1>

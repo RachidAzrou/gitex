@@ -13,11 +13,11 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 201 100% 46%; /* Tecnarit blue #00a0e9 */
+  --primary: 136 55% 46%; /* Tecnarit green #42b063 */
   --primary-foreground: 210 40% 98%;
-  --secondary: 215 78% 18%; /* Tecnarit dark blue #00315a */
+  --secondary: 218 42% 17%; /* Tecnarit dark blue #172334 */
   --secondary-foreground: 0 0% 100%;
-  --accent: 60 4.8% 95.9%;
+  --accent: 120 60% 70%; /* Lighter green accent */
   --accent-foreground: 24 9.8% 10%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
@@ -36,11 +36,11 @@
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --primary: 201 100% 46%; /* Tecnarit blue #00a0e9 */
+  --primary: 136 55% 46%; /* Tecnarit green #42b063 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 215 78% 18%; /* Tecnarit dark blue #00315a */
+  --secondary: 218 42% 17%; /* Tecnarit dark blue #172334 */
   --secondary-foreground: 0 0% 98%;
-  --accent: 240 3.7% 15.9%;
+  --accent: 120 60% 70%; /* Lighter green accent */
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
@@ -63,22 +63,30 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.text-tecnarit-blue {
-  color: #00a0e9;
+.text-tecnarit-green {
+  color: #42b063;
 }
 
 .text-tecnarit-dark-blue {
-  color: #00315a;
+  color: #172334;
 }
 
-.bg-tecnarit-blue {
-  background-color: #00a0e9;
+.bg-tecnarit-green {
+  background-color: #42b063;
+}
+
+.bg-tecnarit-gradient {
+  background: linear-gradient(120deg, #42b063, #8ad151);
 }
 
 .bg-tecnarit-dark-blue {
-  background-color: #00315a;
+  background-color: #172334;
 }
 
 .hover\:bg-tecnarit-dark-blue:hover {
-  background-color: #00315a;
+  background-color: #172334;
+}
+
+.hover\:bg-tecnarit-green:hover {
+  background-color: #42b063;
 }

@@ -39,29 +39,31 @@ const RedirectPage = () => {
   };
 
   return (
-    <div className="font-poppins bg-white text-gray-800 min-h-screen flex flex-col">
+    <div className="font-poppins bg-secondary text-white min-h-screen flex flex-col">
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
         {/* Logo Section */}
         <div className="mb-8">
-          <div className="text-4xl font-bold text-tecnarit-blue">
-            TECNARIT
-          </div>
+          <img 
+            src="/assets/tecnarit-logo.png" 
+            alt="Tecnarit Logo" 
+            className="h-16 sm:h-20 mb-4"
+          />
         </div>
 
         {/* Message Section */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-tecnarit-dark-blue">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
             "Not an Uber, but we do drive quality!"
           </h1>
-          <p className="text-lg text-gray-600">
-            Redirecting to <span className="font-semibold text-tecnarit-blue">tecnarit.com</span> in <span className="font-bold text-tecnarit-blue">{secondsLeft}</span> seconds
+          <p className="text-lg text-gray-200">
+            Redirecting to <span className="font-semibold text-tecnarit-green">tecnarit.com</span> in <span className="font-bold text-tecnarit-green">{secondsLeft}</span> seconds
           </p>
         </div>
 
         {/* Progress Bar */}
-        <div className="w-full max-w-md bg-gray-200 rounded-full h-2.5 mb-6">
+        <div className="w-full max-w-md bg-gray-700 rounded-full h-3 mb-8">
           <div 
-            className="bg-tecnarit-blue h-2.5 rounded-full transition-all duration-100 ease-linear"
+            className="bg-tecnarit-gradient h-3 rounded-full transition-all duration-100 ease-linear"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
@@ -69,7 +71,7 @@ const RedirectPage = () => {
         {/* Manual Redirect Button */}
         <Button 
           onClick={handleManualRedirect}
-          className="bg-tecnarit-blue hover:bg-tecnarit-dark-blue text-white font-medium py-2 px-6 rounded-md transition duration-300"
+          className="bg-tecnarit-green hover:bg-tecnarit-green/90 text-white font-medium py-3 px-8 rounded-md transition duration-300 text-lg"
         >
           Go to Tecnarit Now
         </Button>

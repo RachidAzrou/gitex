@@ -1,0 +1,9 @@
+{
+  "name": "tecnarit-redirect",
+  "version": "1.0.0",
+  "description": "Redirect page for Tecnarit",
+  "private": true,
+  "scripts": {
+    "vercel-build": "echo 'Static files are ready to serve'"
+  }
+}

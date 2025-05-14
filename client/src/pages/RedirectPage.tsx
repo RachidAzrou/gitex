@@ -45,9 +45,6 @@ const RedirectPage = () => {
       {/* Code Background Animation */}
       <CodeBackground />
       
-      {/* Darken background for better readability */}
-      <div className="absolute inset-0 bg-secondary bg-opacity-80 z-0"></div>
-      
       {/* Content */}
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 z-10 relative">
         {/* Logo Section */}
@@ -67,7 +64,7 @@ const RedirectPage = () => {
         </div>
 
         {/* Message Section */}
-        <div className="text-center mb-6 backdrop-blur-sm bg-secondary/30 p-6 rounded-lg">
+        <div className="text-center mb-6 backdrop-blur-md bg-secondary/60 p-6 rounded-lg shadow-xl">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
             "Not an Uber, but we do drive quality!"
           </h1>

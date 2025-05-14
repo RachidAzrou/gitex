@@ -105,9 +105,9 @@ const CodeBackground: React.FC = () => {
     window.addEventListener('resize', setCanvasSize);
 
     // Line setup
-    const fontSize = 14;
+    const fontSize = 16; // Larger font
     ctx.font = `${fontSize}px 'Courier New', monospace`;
-    const lineHeight = fontSize * 1.2;
+    const lineHeight = fontSize * 1.3;
     
     // Create an array of text lines with their positions
     const lines: Array<{
@@ -132,12 +132,12 @@ const CodeBackground: React.FC = () => {
           // Random horizontal position
           const x = Math.random() * (canvas.width + 300) - 150;
           
-          // Random transparency
-          const alpha = 0.05 + Math.random() * 0.15;
+          // More visible transparency
+          const alpha = 0.3 + Math.random() * 0.3;
           
-          // Random green shade
-          const colorValue = 100 + Math.floor(Math.random() * 155);
-          const color = `rgb(0, ${colorValue}, 50)`;
+          // Brighter green shade for better visibility
+          const colorValue = 150 + Math.floor(Math.random() * 105);
+          const color = `rgb(0, ${colorValue}, 80)`;
           
           lines.push({ text: line, x, y, alpha, color });
           y += lineHeight;
@@ -150,8 +150,11 @@ const CodeBackground: React.FC = () => {
 
     // Draw frame
     const drawFrame = () => {
-      // Clear canvas with dark background
-      ctx.fillStyle = 'rgba(23, 35, 52, 0.2)';  // Dark blue with slight transparency for trail effect
+      // Clear canvas completely
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Fill with dark background
+      ctx.fillStyle = 'rgba(23, 35, 52, 0.95)';  // Dark blue background
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       // Move and draw lines
@@ -159,14 +162,14 @@ const CodeBackground: React.FC = () => {
         const line = lines[i];
         
         // Slowly move the line
-        line.y += 0.3;  // Slow vertical movement
+        line.y += 0.5;  // Slightly faster vertical movement for better visibility
         line.x -= 0.1;  // Very slight horizontal drift
         
         // Reset line if it went out of view
         if (line.y > canvas.height + 50) {
           line.y = -50;
           line.x = Math.random() * (canvas.width + 300) - 150;
-          line.alpha = 0.05 + Math.random() * 0.15;
+          line.alpha = 0.15 + Math.random() * 0.25;  // Higher opacity
         }
         
         // Draw the line
@@ -195,8 +198,8 @@ const CodeBackground: React.FC = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="fixed top-0 left-0 w-full h-full -z-10"
-      style={{ opacity: 0.8 }}
+      className="fixed top-0 left-0 w-full h-full"
+      style={{ opacity: 0.8, zIndex: 0 }}
     />
   );
 };

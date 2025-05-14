@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import TecnaritLogo from "../components/TecnaritLogo";
 
 const RedirectPage = () => {
   const [secondsLeft, setSecondsLeft] = useState(4);
@@ -42,12 +43,13 @@ const RedirectPage = () => {
     <div className="font-poppins bg-secondary text-white min-h-screen flex flex-col">
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6">
         {/* Logo Section */}
-        <div className="mb-8">
-          <img 
-            src="/assets/tecnarit-logo.png" 
-            alt="Tecnarit Logo" 
-            className="h-16 sm:h-20 mb-4"
-          />
+        <div className="mb-8 flex flex-col items-center">
+          <div className="mb-4" style={{ width: "120px", height: "120px" }}>
+            <TecnaritLogo />
+          </div>
+          <div className="text-3xl font-bold text-white tracking-widest">
+            TECNARIT
+          </div>
         </div>
 
         {/* Message Section */}

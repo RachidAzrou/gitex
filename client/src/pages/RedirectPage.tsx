@@ -86,7 +86,7 @@ const RedirectPage = () => {
           onClick={handleManualRedirect}
           className="bg-tecnarit-green hover:bg-tecnarit-green/90 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-md transition duration-300 text-base sm:text-lg shadow-lg"
         >
-          Go to Tecnarit Now
+          Take the Wheel
         </Button>
       </div>
     </div>

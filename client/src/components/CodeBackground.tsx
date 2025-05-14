@@ -98,16 +98,22 @@ const CodeBackground: React.FC = () => {
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      
+      // Reset font size based on screen width for better mobile responsiveness
+      const isMobile = window.innerWidth < 768;
+      const fontSize = isMobile ? 12 : 16; // Smaller font on mobile
+      ctx.font = `${fontSize}px 'Courier New', monospace`;
     };
 
     // Initial setup
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Line setup
-    const fontSize = 16; // Larger font
+    // Line setup - this initial font setup will be overridden by setCanvasSize
+    const isMobile = window.innerWidth < 768;
+    const fontSize = isMobile ? 12 : 16; // Responsive font size
     ctx.font = `${fontSize}px 'Courier New', monospace`;
-    const lineHeight = fontSize * 1.3;
+    const getLineHeight = () => fontSize * 1.3; // Function to recalculate line height
     
     // Create an array of text lines with their positions
     const lines: Array<{
@@ -121,7 +127,7 @@ const CodeBackground: React.FC = () => {
     // Initialize lines
     const initLines = () => {
       lines.length = 0;
-      let y = -lineHeight;
+      let y = -getLineHeight();
       
       // Create enough lines to fill the screen plus some overflow
       while (y < canvas.height + 200) {
@@ -140,11 +146,11 @@ const CodeBackground: React.FC = () => {
           const color = `rgb(0, ${colorValue}, 80)`;
           
           lines.push({ text: line, x, y, alpha, color });
-          y += lineHeight;
+          y += getLineHeight();
         }
         
         // Add some space between code snippets
-        y += lineHeight * 2;
+        y += getLineHeight() * 2;
       }
     };
 
@@ -157,13 +163,18 @@ const CodeBackground: React.FC = () => {
       ctx.fillStyle = 'rgba(23, 35, 52, 0.95)';  // Dark blue background
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
+      // Calculate movement speed based on screen size for consistent feel across devices
+      const isSmallScreen = window.innerWidth < 768;
+      const verticalSpeed = isSmallScreen ? 0.4 : 0.5; // Slightly slower on mobile
+      const horizontalSpeed = isSmallScreen ? 0.05 : 0.1; // Half the horizontal drift on mobile
+      
       // Move and draw lines
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         
-        // Slowly move the line
-        line.y += 0.5;  // Slightly faster vertical movement for better visibility
-        line.x -= 0.1;  // Very slight horizontal drift
+        // Slowly move the line with responsive speeds
+        line.y += verticalSpeed;
+        line.x -= horizontalSpeed;
         
         // Reset line if it went out of view
         if (line.y > canvas.height + 50) {

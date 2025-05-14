@@ -49,7 +49,7 @@ const RedirectPage = () => {
       <div className="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 z-10 relative">
         {/* Logo Section */}
         <div className="mb-8 flex flex-col items-center">
-          <div className="mb-4" style={{ width: "300px", height: "auto" }}>
+          <div className="mb-4 w-full max-w-[300px] sm:max-w-[300px] h-auto">
             <img 
               src="/assets/tecnarit-logo-transparent.png" 
               alt="Tecnarit Logo" 
@@ -64,11 +64,11 @@ const RedirectPage = () => {
         </div>
 
         {/* Message Section */}
-        <div className="text-center mb-6 backdrop-blur-md bg-secondary/60 p-6 rounded-lg shadow-xl">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
+        <div className="text-center mb-6 backdrop-blur-md bg-secondary/60 p-4 sm:p-6 rounded-lg shadow-xl w-full max-w-md mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             "Not an Uber, but we do drive quality!"
           </h1>
-          <p className="text-lg text-gray-200">
+          <p className="text-base sm:text-lg text-gray-200">
             Redirecting to <span className="font-semibold text-tecnarit-green">tecnarit.com</span> in <span className="font-bold text-tecnarit-green">{secondsLeft}</span> seconds
           </p>
         </div>
@@ -84,7 +84,7 @@ const RedirectPage = () => {
         {/* Manual Redirect Button */}
         <Button 
           onClick={handleManualRedirect}
-          className="bg-tecnarit-green hover:bg-tecnarit-green/90 text-white font-medium py-3 px-8 rounded-md transition duration-300 text-lg shadow-lg"
+          className="bg-tecnarit-green hover:bg-tecnarit-green/90 text-white font-medium py-2 sm:py-3 px-6 sm:px-8 rounded-md transition duration-300 text-base sm:text-lg shadow-lg"
         >
           Go to Tecnarit Now
         </Button>

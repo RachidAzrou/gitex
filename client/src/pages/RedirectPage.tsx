@@ -68,6 +68,9 @@ const RedirectPage = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             "Not an Uber, but we do drive quality!"
           </h1>
+          <p className="text-lg sm:text-xl font-semibold text-tecnarit-green mb-3">
+            Can't wait!
+          </p>
           <p className="text-base sm:text-lg text-gray-200">
             Redirecting to <span className="font-semibold text-tecnarit-green">tecnarit.com</span> in <span className="font-bold text-tecnarit-green">{secondsLeft}</span> seconds
           </p>
